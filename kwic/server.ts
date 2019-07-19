@@ -19,6 +19,6 @@ import * as bodyparser from "body-parser";
 const jsonParser = bodyparser.json();
 
 app.post("/KWIC", jsonParser, parser, lineStorage, cyclicShifter, combiner, alphabetizer);
-
+app.post("/cyberminer", jsonParser);
 // start server and listen to incoming request
 app.listen(process.env.PORT || 8091, () => {console.log("Server started...")});

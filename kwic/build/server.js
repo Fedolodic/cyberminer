@@ -25,5 +25,6 @@ app.use(function (req, res, next) {
 const bodyparser = __importStar(require("body-parser"));
 const jsonParser = bodyparser.json();
 app.post("/KWIC", jsonParser, apiParser_1.apiParser, apiLineStorage_1.apiLineStorage, apiCyclicShifter_1.apiCyclicShifter, apiCombiner_1.apiCombiner, apiAlphabetizer_1.apiAlphabetizer);
+app.post("cyberminer", jsonParser);
 // start server and listen to incoming request
 app.listen(process.env.PORT || 8091, () => { console.log("Server started..."); });
