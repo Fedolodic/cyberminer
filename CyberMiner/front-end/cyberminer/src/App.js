@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import { PageDetails } from "./PageDetails";
-import { SearchBar } from "./SearchBar";
-import { Sorts } from "./Sorts";
-import { ToolBar } from "./ToolBar";
-import { ResultPages } from "./ResultPages";
+import { PageDetails } from "./components/PageDetails";
+import { SearchBar } from "./components/SearchBar";
+import { Sorts } from "./components/Sorts";
+import { ToolBar } from "./components/ToolBar";
+import { ResultPages } from "./components/ResultPages";
 
 class App extends React.Component {
   state = {
