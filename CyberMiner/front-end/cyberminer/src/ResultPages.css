@@ -1,0 +1,17 @@
+button.button {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    font-size: 100%;
+    color: #4183c4;
+    outline: none;
+}
+
+button.activeButton {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    font-size: 100%;
+    color: rgb(123, 5, 170);
+    outline: none;
+}
