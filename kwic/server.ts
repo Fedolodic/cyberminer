@@ -5,7 +5,7 @@ import { apiLineStorage as lineStorage} from "./api/apiKwic/apiLineStorage";
 import { apiCyclicShifter as cyclicShifter } from "./api/apiKwic/apiCyclicShifter";
 import { apiCombiner as combiner} from "./api/apiKwic/apiCombiner";
 import { apiAlphabetizer as alphabetizer} from "./api/apiKwic/apiAlphabetizer";
-import { apiKwic as Kwic } from "./api/apiKwic/apiKwic";
+import * as bodyparser from "body-parser";
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(function(req, res, next) {
     next();
   });
   
-import * as bodyparser from "body-parser";
+
 const jsonParser = bodyparser.json();
 
 app.post("/KWIC", jsonParser, parser, lineStorage, cyclicShifter, combiner, alphabetizer);
