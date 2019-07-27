@@ -1,16 +1,13 @@
 import { Request, Response, NextFunction} from "express";
 
-export interface cyberMinerRequest extends Request {
-    searchQuery?:string[]
-    ParsedString?:string[][]
-    dbData?:any
-    parsedDbData?:string[][]
-    searchResults?:string[][]
-    combinedSearchResult?:string[]
+export interface CyberMinerRequest extends Request {
+    input:string,
+    queryResults:any,
+    searchResults:any
 }
 
-export interface cyberMinerResponse extends Response {
+export interface CyberMinerResponse extends Response {
 
 }
 
-export type KwicRequestHandler = (req:cyberMinerRequest, res:cyberMinerResponse, next:NextFunction) => any;
+export type CyberMinerRequestHandler = (req:CyberMinerRequest, res:CyberMinerResponse, next:NextFunction) => any;
