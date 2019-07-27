@@ -4,6 +4,8 @@
   "description": "",
   "main": "../../kwic/server.ts",
   "scripts": {
+    "start": "nodemon -e ts -w ./ -x npm run start-server",
+    "start-server": "tsc && node build/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

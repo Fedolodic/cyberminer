@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction} from "express";
+import axios from "axios";
 
 export interface CyberMinerRequest extends Request {
     input:string,
