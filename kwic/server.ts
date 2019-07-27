@@ -7,6 +7,7 @@ import { apiCombiner as combiner} from "./api/apiKwic/apiCombiner";
 import { apiAlphabetizer as alphabetizer} from "./api/apiKwic/apiAlphabetizer";
 import * as bodyparser from "body-parser";
 import { connectMongo } from "./back-end/database/db";
+import { apiDataBase  as dataBase } from "./back-end/api/apiDataBase";
 
 const app = express();
 
@@ -21,6 +22,6 @@ app.use(function(req, res, next) {
 const jsonParser = bodyparser.json();
 
 app.post("/KWIC", jsonParser, parser, lineStorage, cyclicShifter, combiner, alphabetizer);
-app.post("/cyberminer", jsonParser, parser, lineStorage, cyclicShifter, combiner, alphabetizer);
+app.post("/cyberminer", jsonParser, dataBase);
 // start server and listen to incoming request
 app.listen(process.env.PORT || 8091, () => {console.log("Server started...")});

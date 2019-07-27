@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export class DataHandler {
-    handleData = (stringToShift:any) => {
+    handleData = (stringToShift:Object) => {
         const shiftedString = this.callKwic(stringToShift);
     }
 
-    callKwic = (stringToShift:any) => {
+    callKwic = (stringToShift:Object) => {
 
     }
 }
