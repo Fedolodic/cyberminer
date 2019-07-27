@@ -6,19 +6,21 @@ import { apiCyclicShifter as cyclicShifter } from "./api/apiKwic/apiCyclicShifte
 import { apiCombiner as combiner} from "./api/apiKwic/apiCombiner";
 import { apiAlphabetizer as alphabetizer} from "./api/apiKwic/apiAlphabetizer";
 import * as bodyparser from "body-parser";
+import { connectMongo } from "./back-end/database/db";
 
 const app = express();
+
+connectMongo();
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
-  
 
 const jsonParser = bodyparser.json();
 
 app.post("/KWIC", jsonParser, parser, lineStorage, cyclicShifter, combiner, alphabetizer);
-app.post("/cyberminer", jsonParser);
+app.post("/cyberminer", jsonParser, parser, lineStorage, cyclicShifter, combiner, alphabetizer);
 // start server and listen to incoming request
 app.listen(process.env.PORT || 8091, () => {console.log("Server started...")});

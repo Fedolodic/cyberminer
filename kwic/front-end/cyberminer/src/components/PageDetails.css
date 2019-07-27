@@ -1,0 +1,9 @@
+.ui.container .ui.segment {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+a {
+    font-size: 2.5em;
+}

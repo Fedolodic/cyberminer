@@ -28,4 +28,4 @@ export const apiCombiner:KwicRequestHandler = (req, res, next) => {
         ));
     }
     
-}
+};
