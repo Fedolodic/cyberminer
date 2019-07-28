@@ -8,20 +8,25 @@ import { apiAlphabetizer as alphabetizer} from "./api/apiKwic/apiAlphabetizer";
 import * as bodyparser from "body-parser";
 import { connectMongo } from "./back-end/database/db";
 import { apiDataBase  as dataBase } from "./back-end/api/apiDataBase";
+import { apiSearcher as searcher } from "./back-end/api/apiSearcher";
+import { apiLineParser as lineParser } from "./back-end/api/apiLineParser";
 
 const app = express();
 
 connectMongo();
+const jsonParser = bodyparser.json();
 
-app.use(function(req, res, next) {
+app.use(
+  function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-  });
+  },
+  jsonParser, 
+);
 
-const jsonParser = bodyparser.json();
+app.post("/KWIC", parser, lineStorage, cyclicShifter, combiner, alphabetizer);
+app.post("/cyberminer", lineParser, dataBase, searcher);
 
-app.post("/KWIC", jsonParser, parser, lineStorage, cyclicShifter, combiner, alphabetizer);
-app.post("/cyberminer", jsonParser, dataBase);
 // start server and listen to incoming request
 app.listen(process.env.PORT || 8091, () => {console.log("Server started...")});

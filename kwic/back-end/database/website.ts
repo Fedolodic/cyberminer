@@ -5,7 +5,8 @@ const websiteSchema = new mongoose.Schema({
     url: String,
     description: String,
     payments: Number,
-    visits: Number
+    visits: Number,
+    shiftedLines:[String]
 });
 
 export const Website = mongoose.model("Website", websiteSchema);
@@ -15,16 +16,26 @@ const testData1:Object = {
     url: "1google.com",
     description:"google",
     payments:0,
-    visits:1
+    visits:1,
+    shiftedLines: [
+        "cool is google",
+        "google is cool",
+        "is cool google"
+    ]
 };
 
 
 const testData2:Object = {
     link: "https://www.google.com",
     url: "2google.com",
-    description:"google",
+    description:"google is cool",
     payments:0,
-    visits:2
+    visits:2,
+    shiftedLines: [
+        "cool is google",
+        "google is cool",
+        "is cool google"
+    ]
 };
 
 Website.find().then(data => {

@@ -19,15 +19,17 @@ const apiAlphabetizer_1 = require("./api/apiKwic/apiAlphabetizer");
 const bodyparser = __importStar(require("body-parser"));
 const db_1 = require("./back-end/database/db");
 const apiDataBase_1 = require("./back-end/api/apiDataBase");
+const apiSearcher_1 = require("./back-end/api/apiSearcher");
+const apiLineParser_1 = require("./back-end/api/apiLineParser");
 const app = express_1.default();
 db_1.connectMongo();
+const jsonParser = bodyparser.json();
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-});
-const jsonParser = bodyparser.json();
-app.post("/KWIC", jsonParser, apiParser_1.apiParser, apiLineStorage_1.apiLineStorage, apiCyclicShifter_1.apiCyclicShifter, apiCombiner_1.apiCombiner, apiAlphabetizer_1.apiAlphabetizer);
-app.post("/cyberminer", jsonParser, apiDataBase_1.apiDataBase);
+}, jsonParser);
+app.post("/KWIC", apiParser_1.apiParser, apiLineStorage_1.apiLineStorage, apiCyclicShifter_1.apiCyclicShifter, apiCombiner_1.apiCombiner, apiAlphabetizer_1.apiAlphabetizer);
+app.post("/cyberminer", apiLineParser_1.apiLineParser, apiDataBase_1.apiDataBase, apiSearcher_1.apiSearcher);
 // start server and listen to incoming request
 app.listen(process.env.PORT || 8091, () => { console.log("Server started..."); });

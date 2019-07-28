@@ -5,7 +5,6 @@ exports.apiDataBase = (req, res, next) => {
     const db = new Database_1.DataBase();
     db.readFromDb().then(data => {
         req.queryResults = data;
-        console.log((req.queryResults));
         next();
     });
 };

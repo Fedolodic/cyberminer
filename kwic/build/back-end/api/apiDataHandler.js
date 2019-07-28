@@ -4,5 +4,5 @@ exports.apiDataHandler = (req, res, next) => {
     const queryResults = req.queryResults;
 };
 const handleData = (dataHandler, queryResults) => {
-    dataHandler.handleData(queryReseults);
+    dataHandler.handleData(queryResults);
 };

@@ -1,6 +1,5 @@
-import axios from "axios";
-
-export class DataHandler {
+export class LineParser {
+    
     handleData = (stringToShift:Object) => {
         const shiftedString = this.callKwic(stringToShift);
     }
