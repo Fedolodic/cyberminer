@@ -9,6 +9,10 @@ export class SearchBar extends React.Component {
         labelName:"SearchBarLabel"
     }
 
+    componentDidMount = () => {
+
+    }
+
     onChange = (e, {name, value}) => {
         this.setState({[name]:value});
     }
@@ -35,7 +39,7 @@ export class SearchBar extends React.Component {
                                     placeholder="Search..."
                                     value={this.state.input}
                                     onChange={this.onChange}
-                                    />            
+                                    />
                             </Form.Field>
                         </Form>
                 </div>

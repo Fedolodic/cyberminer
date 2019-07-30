@@ -1,6 +1,5 @@
 import React from "react";
 import { Dropdown, Label } from "semantic-ui-react";
-
 export class DropDown extends React.Component {
     onChange = (e, dropDown) => {
         this.props.onChange(dropDown.value);

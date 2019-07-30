@@ -66,6 +66,18 @@ export default class HomePage extends React.Component {
           console.log(res);
           const searchResults = res.data.searchResults;
         
+         /* searchResults.forEach(result => {
+            axios.get("https://www.adsfadfa.com",
+              {
+                headers: {
+                  'Access-Control-Allow-Origin': '*'
+                }
+              }
+            )
+          })
+            .catch(error => {
+              console.log(error);
+            })*/
 
           this.setState({
             SearchInput:input,
