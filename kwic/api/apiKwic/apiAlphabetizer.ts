@@ -6,16 +6,32 @@ import { KwicRequestHandler } from "./KwicRequestHandler";
 export const apiAlphabetizer:KwicRequestHandler = (req, res, next) => {
     // get the combined string
     let stringsToSort = req.CombinedString;
+    let descToSort = req.CombinedDesc;
 
-    
     // if content then sort the string and send back to user
-    if(stringsToSort) {
+    if(typeof(stringsToSort) != "undefined" && stringsToSort.length) {
         let sortedStrings:string[][] = 
             sortResults(new Alphabetizer(), stringsToSort, ">");
             
         res.json({
             cyclicallyShifted: req.CombinedResults,
             alphabeticallyShifted: sortedStrings});
+    }
+    else if(typeof(descToSort) != "undefined" && descToSort.length) {
+        let sortedDesc:string[][][] = descToSort.map(desc => {
+            return sortResults(new Alphabetizer(), desc, ">");
+        })
+        console.log("sortedDesc:  ", sortedDesc);
+
+        let webPages = req.webPageDetails;
+        
+        webPages.forEach((page:any, index:number) => {
+            page.shiftedLines = sortedDesc[index];
+        })
+
+        res.json({
+            webPageDetails: webPages
+        })
     }
 }
 

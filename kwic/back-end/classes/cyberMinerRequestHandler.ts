@@ -4,7 +4,8 @@ export interface CyberMinerRequest extends Request {
     input?:string
     SearchResults?:any
     parsedInput?:string[],
-    queryResults?:any
+    queryResults?:any,
+    booleanSymbols?:string[]
 }
 
 export interface CyberMinerResponse extends Response {

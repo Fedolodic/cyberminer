@@ -3,7 +3,9 @@ import { Parser } from "../../api/apiKwic/Parser";
 
 export const apiLineParser:CyberMinerRequestHandler = (req, res, next) => {
     const input = req.body.input;
-    req.parsedInput = parseLine(new Parser(), input);
+    let parsedInput:any = parseLine(new Parser(), input);
+    req.parsedInput = parsedInput.parsedLines;
+    req.booleanSymbols = parsedInput.booleanSymbols;;
     next();
 };
 

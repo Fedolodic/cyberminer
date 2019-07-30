@@ -1,12 +1,17 @@
 import React from 'react';
 import "./SearchBar.css";
 import { Form, Input} from 'semantic-ui-react';
+import { DropDown } from "./DropDown";
 
 export class SearchBar extends React.Component {
     state = {
         input:"",
         inputName:"Submit",
         labelName:"SearchBarLabel"
+    }
+
+    componentDidMount = () => {
+
     }
 
     onChange = (e, {name, value}) => {
@@ -29,13 +34,12 @@ export class SearchBar extends React.Component {
                         <Form className={this.state.inputName} onSubmit={this.onSubmit}>
                             <Form.Field>
                                 <label className={this.state.labelName}>CyberMiner</label>
-                                <Input
-                                    type="Input"
-                                    name="input"
-                                    placeholder="Search..."
-                                    value={this.state.input}
-                                    onChange={this.onChange}
-                                    />            
+                                <DropDown 
+                                    search
+                                    placeHolder={dropDown.placeHolder}
+                                    items = {dropDown.items}
+                                    dropDownLabel = {dropDown.dropDownLabel}/>
+                                    onChage={this.onChange}         
                             </Form.Field>
                         </Form>
                 </div>

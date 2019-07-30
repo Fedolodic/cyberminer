@@ -25,8 +25,9 @@ app.use(
   jsonParser, 
 );
 
-app.post("/KWIC", parser, lineStorage, cyclicShifter, combiner, alphabetizer);
+app.post("/KWIC", parser, cyclicShifter, combiner, alphabetizer);
 app.post("/cyberminer", lineParser, dataBase, searcher);
+app.post("search", dataBase);
 
 // start server and listen to incoming request
 app.listen(process.env.PORT || 8091, () => {console.log("Server started...")});

@@ -18,13 +18,14 @@ class Parser {
             let booleanSymbols = [];
             let currentWord = "";
             let currentPhrase = "";
+            let parsedData = [];
             for (; current < userInput.length; current++) {
                 const currentChar = userInput[current];
                 if (currentChar === " ") {
                     if (currentWord === "AND" || currentWord === "OR" || currentWord === "NOT") {
                         if (currentPhrase.length)
                             parsedLines.push(currentPhrase.trim());
-                        parsedLines.push(currentWord);
+                        booleanSymbols.push(currentWord);
                         currentPhrase = "";
                     }
                     else
@@ -36,13 +37,14 @@ class Parser {
             }
             parsedLines.push(currentPhrase + currentWord);
             console.log(parsedLines);
+            console.log(booleanSymbols);
             // if there was content return
             if (parsedLines.length) {
-                return parsedLines;
+                return { parsedLines, booleanSymbols };
             }
-            return [];
+            return undefined;
         }
-        return [];
+        return undefined;
     }
     parse(userInput) {
         // make sure there is userinput

@@ -3,13 +3,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const CyclicShifter_1 = require("./CyclicShifter");
 // shifter middleware 
 exports.apiCyclicShifter = (req, res, next) => {
-    let stringToShift = req.StoredString; // get string to shift
+    let stringToShift = req.ParsedString;
+    let parsedDesc = req.parsedDesc; // get string to shift
     let shiftedString = [];
+    let shiftedDesc = [];
     // if not undefined the shift and send to next piece of middleware
     if (typeof (stringToShift) != "undefined")
         shiftedString = cyclicShift(new CyclicShifter_1.CyclicShifter(), stringToShift);
-    if (shiftedString) {
+    else if (parsedDesc.length)
+        parsedDesc.forEach((desc) => {
+            const shifted = cyclicShift(new CyclicShifter_1.CyclicShifter(), desc);
+            shiftedDesc.push(shifted);
+        });
+    if (shiftedString.length) {
         req.ShiftedString = shiftedString;
+        next();
+    }
+    else if (shiftedDesc.length) {
+        req.shiftedDesc = shiftedDesc;
         next();
     }
     else

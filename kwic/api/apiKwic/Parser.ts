@@ -1,4 +1,5 @@
 import { RequestHandler } from "express";
+import { bool, string } from "prop-types";
 
 export class Parser {
     /****************
@@ -19,6 +20,7 @@ export class Parser {
             let booleanSymbols:string[] = [];
             let currentWord:string = "";
             let currentPhrase:string = "";
+            let parsedData = [];
 
             for(;current < userInput.length; current++) {
                 const currentChar = userInput[current];
@@ -28,7 +30,7 @@ export class Parser {
                         if(currentPhrase.length)
                             parsedLines.push(currentPhrase.trim());
 
-                        parsedLines.push(currentWord);
+                        booleanSymbols.push(currentWord);
 
                         currentPhrase = "";
                     } else 
@@ -43,15 +45,16 @@ export class Parser {
             parsedLines.push(currentPhrase + currentWord);
 
             console.log(parsedLines);
+            console.log(booleanSymbols);
             // if there was content return
             if(parsedLines.length) {
-                    return parsedLines;
+                return {parsedLines, booleanSymbols};
             } 
             
-            return [];
+            return undefined;
         }
 
-        return [];
+        return undefined;
     }
     
     parse(userInput:string) {
