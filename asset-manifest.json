@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/cyberminer/static/css/main.fc2e8c57.chunk.css",
-    "main.js": "/cyberminer/static/js/main.059dc96e.chunk.js",
-    "main.js.map": "/cyberminer/static/js/main.059dc96e.chunk.js.map",
+    "main.js": "/cyberminer/static/js/main.5c890b1b.chunk.js",
+    "main.js.map": "/cyberminer/static/js/main.5c890b1b.chunk.js.map",
     "runtime~main.js": "/cyberminer/static/js/runtime~main.fd50e863.js",
     "runtime~main.js.map": "/cyberminer/static/js/runtime~main.fd50e863.js.map",
-    "static/js/2.d1be61ec.chunk.js": "/cyberminer/static/js/2.d1be61ec.chunk.js",
-    "static/js/2.d1be61ec.chunk.js.map": "/cyberminer/static/js/2.d1be61ec.chunk.js.map",
+    "static/js/2.2c0c3a49.chunk.js": "/cyberminer/static/js/2.2c0c3a49.chunk.js",
+    "static/js/2.2c0c3a49.chunk.js.map": "/cyberminer/static/js/2.2c0c3a49.chunk.js.map",
     "index.html": "/cyberminer/index.html",
-    "precache-manifest.b0056e09429fc3b2a47d57e655e1dbdf.js": "/cyberminer/precache-manifest.b0056e09429fc3b2a47d57e655e1dbdf.js",
+    "precache-manifest.e8a0949f4d28ca54d9e32e11528c887f.js": "/cyberminer/precache-manifest.e8a0949f4d28ca54d9e32e11528c887f.js",
     "service-worker.js": "/cyberminer/service-worker.js",
     "static/css/main.fc2e8c57.chunk.css.map": "/cyberminer/static/css/main.fc2e8c57.chunk.css.map"
   }
