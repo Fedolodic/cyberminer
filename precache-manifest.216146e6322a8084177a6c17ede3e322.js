@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6db3f1ac56f7908c0d39cd63c9f58f56",
+    "revision": "99ddf10f1e5a5c9dfc7590bf9aa49c0c",
     "url": "/cyberminer/index.html"
   },
   {
-    "revision": "9905ff5ee68936062ed7",
+    "revision": "583e27ea968c77954c4f",
     "url": "/cyberminer/static/css/main.fc2e8c57.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cyberminer/static/js/2.e840d712.chunk.js"
   },
   {
-    "revision": "9905ff5ee68936062ed7",
-    "url": "/cyberminer/static/js/main.934ab070.chunk.js"
+    "revision": "583e27ea968c77954c4f",
+    "url": "/cyberminer/static/js/main.630bb747.chunk.js"
   },
   {
     "revision": "3babc2c44e964469bc6c",
