@@ -10,7 +10,8 @@ import { connectMongo } from "./back-end/database/db";
 import { apiDataBase  as dataBase } from "./back-end/api/apiDataBase";
 import { apiSearcher as searcher } from "./back-end/api/apiSearcher";
 import { apiLineParser as lineParser } from "./back-end/api/apiLineParser";
-
+import {apiAutoCorrect as autoCorrect } from "./back-end/api/apiAutoCorrect";
+import {apiDb as Db} from "./back-end/api/apiDb";
 const app = express();
 
 connectMongo();
@@ -18,8 +19,8 @@ const jsonParser = bodyparser.json();
 
 app.use(
   function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+   res.header("Access-Control-Allow-Origin", "*");
+   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   },
   jsonParser, 
@@ -27,7 +28,8 @@ app.use(
 
 app.post("/KWIC", parser, cyclicShifter, combiner, alphabetizer);
 app.post("/cyberminer", lineParser, dataBase, searcher);
-app.post("search", dataBase);
+app.post("/autocorrect", autoCorrect);
+app.post("/db", Db);
 
 // start server and listen to incoming request
 app.listen(process.env.PORT || 8091, () => {console.log("Server started...")});

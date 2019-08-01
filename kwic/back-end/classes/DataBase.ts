@@ -33,8 +33,15 @@ export class DataBase {
     
     }
 
-    updateDb = () => {
-
+    updateDb = (link:any) => {
+        Website.updateOne(
+            {link: link},
+            {$inc: {visits: 1}}
+        ).then(res => {
+            console.log(res);
+        }).catch(e => {
+            console.log(e);
+        })
     }
 
     validateUrl = async (webPage:any) => {
