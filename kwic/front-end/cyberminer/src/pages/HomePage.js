@@ -56,7 +56,7 @@ export default class HomePage extends React.Component {
         input: input
       }
     )
-
+    console.log(input);
     await axios.post('https://cyberminerkwic.herokuapp.com/cyberminer', userInput, {
             headers: {
                 'Content-Type': 'application/json'
@@ -68,11 +68,6 @@ export default class HomePage extends React.Component {
         
          /* searchResults.forEach(result => {
             axios.get("https://www.adsfadfa.com",
-              {
-                headers: {
-                  'Access-Control-Allow-Origin': '*'
-                }
-              }
             )
           })
             .catch(error => {

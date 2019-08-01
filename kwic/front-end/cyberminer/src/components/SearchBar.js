@@ -2,6 +2,7 @@ import React from 'react';
 import "./SearchBar.css";
 import { Form, Input} from 'semantic-ui-react';
 
+
 export class SearchBar extends React.Component {
     state = {
         input:"",
